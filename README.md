@@ -8,10 +8,12 @@
 
 ## Endpoints
 
+### Base API endpoint: https://molext1.com
+
 ### 1- Hackernoon Handle Resolver
 
 ```bash
-GET /resolve-hn/:address
+GET /hackernoon/resolve/:address
 ```
 
 - `address`: EVM EOA address
