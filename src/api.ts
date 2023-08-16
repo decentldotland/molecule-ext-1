@@ -8,7 +8,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("⚛️ molecule-ext-1 ⚛️");
 });
 
-app.get("/resolve-hn/:address", async (req: Request, res: Response) => {
+app.get("/hackernoon/resolve/:address", async (req: Request, res: Response) => {
   const { address } = req.params;
   const profile = await resolveHackerNoonUser(address);
   res.send(profile);
