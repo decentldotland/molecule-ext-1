@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import { resolveHackerNoonUser } from "./molecules/hackernoon/atom";
 import { getKarmaScore } from "./molecules/karma3labs/atom";
+import { getArseedOwner } from "./molecules/arseed/atom";
 import type { Strategy } from "@/types";
 
 const app: Express = express();
@@ -28,6 +29,13 @@ app.get(
     res.send(profile);
   },
 );
+
+app.get("/arseed/verify/:txid/:pubkey", async (req: Request, res: Response) => {
+  const { txid, pubkey } = req.params;
+
+  const result = await getArseedOwner(txid, pubkey);
+  res.send(result);
+});
 
 app.listen(port, () => {
   console.log(`[molecule-ext-1] running on port: ${port}`);
