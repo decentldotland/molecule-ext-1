@@ -18,7 +18,7 @@ GET /hackernoon/resolve/:address
 
 - `address`: EVM EOA address
 
-### 1- Get Karma3Labs Lens score
+### 2- Get Karma3Labs Lens score
 
 ```bash
 GET /karma3labs/score/:handle/:strategy
@@ -26,6 +26,14 @@ GET /karma3labs/score/:handle/:strategy
 
 - `handle`: Lens handle (with or without `.lens`)
 - `strategy` : `any of ["followship","engagement","influencer","creator"]`
+
+### 3- Verify Arseed TX Owner
+
+```bash
+GET /arseed/verify/:txid/:pubkey
+```
+- `txid` : The Arseed data TXID
+- `pubkey` : Arweave wallet public key (modulus n)
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
