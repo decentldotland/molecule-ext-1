@@ -35,5 +35,29 @@ GET /arseed/verify/:txid/:pubkey
 - `txid` : The Arseed data TXID
 - `pubkey` : Arweave wallet public key (modulus n)
 
+### 4- Fetch EVM Assets Balances
+
+#### A- EVM token balance
+
+```bash
+GET /balance/token/:chain/:address/:contract
+```
+
+- `chain`: `any of ["eth", "goerli", "polygon", "bsc", "fantom"]`
+- `address`: EOA address
+- `contract`: token contract address
+
+#### B- EVM NFT balance
+
+```bash
+GET /balance/nft/:chain/:address/:contract
+```
+
+- `chain`: `any of ["eth", "goerli", "polygon", "bsc", "fantom"]`
+- `address`: EOA address
+- `contract`: NFT contract address
+
+#### N.B: B return `{isHolder: bool}` 
+
 ## License
 This project is licensed under the [MIT License](./LICENSE)
