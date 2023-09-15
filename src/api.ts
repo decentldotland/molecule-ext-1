@@ -46,7 +46,7 @@ app.get(
   async (req: Request, res: Response) => {
     const { chain, address, contract } = req.params;
 
-    if (!["eth", "goerli", "polygon", "bsc", "fantom"].includes(chain)) {
+    if (!["eth", "goerli", "polygon", "bsc", "fantom", "arbitrum"].includes(chain)) {
       res.send({ error: "invalid chain key supplied" });
       return;
     }
@@ -62,7 +62,7 @@ app.get(
   async (req: Request, res: Response) => {
     const { chain, address, contract } = req.params;
 
-    if (!["eth", "goerli", "polygon", "bsc", "fantom"].includes(chain)) {
+    if (!["eth", "goerli", "polygon", "bsc", "fantom", "arbitrum"].includes(chain)) {
       res.send({ error: "invalid chain key supplied" });
       return;
     }
