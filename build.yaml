@@ -2,7 +2,7 @@
 version: "2.0"
 services:
   web:
-    image: charmful0x/molext-1
+    image: decentland/molext-1
     env:
       - HACKERNOON_API_KEY=<YOUR_API_KEY>
       - MORALIS_API_TOKEN=<YOUR_API_KEY>
