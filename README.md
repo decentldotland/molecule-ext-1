@@ -9,6 +9,7 @@
 ## Endpoints
 
 ### Base API endpoint: https://molext1.com
+### Akash API endpoint: http://csujnf0vptbm7271idr4kftqpg.ingress.d3akash.cloud/
 
 ### 1- Hackernoon Handle Resolver
 
