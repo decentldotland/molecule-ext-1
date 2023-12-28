@@ -5,6 +5,7 @@ import { getArseedOwner } from "./molecules/arseed/atom";
 import {
   moralisTokenBalance,
   moralisNftBalance,
+  getTransaction
 } from "./molecules/balances/atom";
 import type { Strategy } from "@/types";
 
@@ -67,6 +68,21 @@ app.get(
       return;
     }
     const result = await moralisNftBalance(address, contract, chain);
+    res.send(result);
+    return;
+  },
+);
+
+app.get(
+  "/tx/:chain/:address/:txid",
+  async (req: Request, res: Response) => {
+    const { chain, address, txid } = req.params;
+
+    if (!["eth", "goerli", "polygon", "bsc", "fantom", "base", "arbitrum"].includes(chain)) {
+      res.send({ error: "invalid chain key supplied" });
+      return;
+    }
+    const result = await getTransaction(address, txid, chain);
     res.send(result);
     return;
   },
