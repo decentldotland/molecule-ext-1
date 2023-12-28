@@ -57,3 +57,29 @@ export async function moralisNftBalance(
     return { isHolder: false };
   }
 }
+
+export async function getTransaction(
+  address: string,
+  txid: string,
+  network: string,
+) {
+  try {
+    const options = {
+      method: "GET",
+      url: `https://deep-index.moralis.io/api/v2.2/${address}/erc20/transfers?chain=${network}`,
+      headers: {
+        accept: "application/json",
+        "X-API-Key": process.env.MORALIS_API_TOKEN,
+      },
+    };
+
+    const res = (await axios.request(options))?.data?.result;
+    const tx: any = res.find((tx: any) => tx.transaction_hash == txid);
+
+    return tx;
+  } catch (error) {
+    console.log(error);
+    return {} as any;
+  }
+}
+
