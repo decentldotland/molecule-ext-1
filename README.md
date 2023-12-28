@@ -9,7 +9,6 @@
 ## Endpoints
 
 ### Base API endpoint: https://molext1.com
-### Akash API endpoint: http://csujnf0vptbm7271idr4kftqpg.ingress.d3akash.cloud/
 
 ### 1- Hackernoon Handle Resolver
 
@@ -59,6 +58,16 @@ GET /balance/nft/:chain/:address/:contract
 - `contract`: NFT contract address
 
 #### N.B: B return `{isHolder: bool}` 
+
+#### C- Get Transaction Object
+
+```bash
+GET /tx/:chain/:address/:txid
+```
+
+- `chain`: `any of ["eth", "goerli", "polygon", "bsc", "fantom", "base", "arbitrum"]`
+- `address`: EOA address
+- `txid`: the transaction hash
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
