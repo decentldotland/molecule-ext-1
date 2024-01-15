@@ -69,5 +69,14 @@ GET /tx/:chain/:address/:txid
 - `address`: EOA address
 - `txid`: the transaction hash
 
+### 5- Fork a MEM Function
+
+```bash
+GET /mem/fork/:id/:network/:state?
+```
+- `id` : id of the function to be forked (has to be mainnet function)
+- `network` : where to fork it `"mainnet" || "testnet"`
+- `state (optional)` : override the forked state with a new one encoded in Base64 (`btoa('{"keyA": "valueA"}')`)
+
 ## License
 This project is licensed under the [MIT License](./LICENSE)

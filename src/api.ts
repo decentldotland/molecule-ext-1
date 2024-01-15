@@ -7,6 +7,7 @@ import {
   moralisNftBalance,
   getTransaction
 } from "./molecules/balances/atom";
+import { deployFunction } from "./molecules/mem-factory/atom"
 import type { Strategy } from "@/types";
 
 const app: Express = express();
@@ -85,6 +86,15 @@ app.get(
     const result = await getTransaction(address, txid, chain);
     res.send(result);
     return;
+  },
+);
+
+app.get(
+  "/mem/fork/:id/:network/:state?",
+  async (req: Request, res: Response) => {
+    const { id, network, state } = req.params;
+    const result = await deployFunction(id, network, state);
+    res.send(result);
   },
 );
 

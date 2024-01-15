@@ -1,6 +1,6 @@
 {
   "name": "molecule-ext-1",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Extended endpoint for MEM molecules",
   "main": "index.js",
   "scripts": {
