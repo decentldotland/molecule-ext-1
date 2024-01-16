@@ -75,8 +75,11 @@ GET /tx/:chain/:address/:txid
 GET /mem/fork/:id/:network/:state?
 ```
 - `id` : id of the function to be forked (has to be mainnet function)
-- `network` : where to fork it `"mainnet" || "testnet"`
+- `network` : target network `"mainnet" || "testnet"`
 - `state (optional)` : override the forked state with a new one encoded in Base64 (`btoa('{"keyA": "valueA"}')`)
+
+#### MEM Forks Factory: [RqQg3j58tzuNc2zhrc16sjqeToGvKu23QlmKBGolkyI](https://api.mem.tech/api/state/RqQg3j58tzuNc2zhrc16sjqeToGvKu23QlmKBGolkyI)
+
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
