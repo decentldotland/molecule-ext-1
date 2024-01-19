@@ -80,6 +80,16 @@ GET /mem/fork/:id/:network/:state?
 
 #### MEM Forks Factory: [RqQg3j58tzuNc2zhrc16sjqeToGvKu23QlmKBGolkyI](https://api.mem.tech/api/state/RqQg3j58tzuNc2zhrc16sjqeToGvKu23QlmKBGolkyI)
 
+### 6- Get an SPL Transfer
+
+```bash
+GET /solana/spl/:sig/:token_address/:addr1/:addr2
+```
+
+- `sig`: the transfer signature (TXID)
+- `token_address`: the token smart contract address
+- `addr1`: the first EOA in this action
+- `addr2`: the second EOA in this action
 
 ## License
 This project is licensed under the [MIT License](./LICENSE)
