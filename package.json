@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/decentldotland/molecule-2#readme",
   "dependencies": {
+    "@solana/web3.js": "^1.89.1",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

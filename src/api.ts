@@ -7,7 +7,8 @@ import {
   moralisNftBalance,
   getTransaction
 } from "./molecules/balances/atom";
-import { deployFunction } from "./molecules/mem-factory/atom"
+import { deployFunction } from "./molecules/mem-factory/atom";
+import { getSplTokenTransfer } from "./molecules/solana/atom";
 import type { Strategy } from "@/types";
 
 const app: Express = express();
@@ -94,6 +95,15 @@ app.get(
   async (req: Request, res: Response) => {
     const { id, network, state } = req.params;
     const result = await deployFunction(id, network, state);
+    res.send(result);
+  },
+);
+
+app.get(
+  "/solana/spl/:sig/:token_address/:addr1/:addr2",
+  async (req: Request, res: Response) => {
+    const { sig, token_address, addr1, addr2 } = req.params;
+    const result = await getSplTokenTransfer(sig, token_address, addr1, addr2);
     res.send(result);
   },
 );
