@@ -9,7 +9,7 @@ export async function getSplTokenTransfer(
   try {
     const connection = new web3.Connection(
       web3.clusterApiUrl("mainnet-beta"),
-      "confirmed",
+      "finalized",
     );
 
     const response: any = await connection.getTransaction(sig);
