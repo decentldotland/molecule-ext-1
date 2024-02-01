@@ -10,6 +10,7 @@ import {
 import { deployFunction } from "./molecules/mem-factory/atom";
 import { getSplTokenTransfer } from "./molecules/solana/atom";
 import type { Strategy } from "@/types";
+import { authenticateNearSignature } from "./molecules/near/signMessage/atom";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -105,7 +106,22 @@ app.get(
     const { sig, token_address, addr1, addr2 } = req.params;
     const result = await getSplTokenTransfer(sig, token_address, addr1, addr2);
     res.send(result);
-  },
+  }
+);
+
+app.get(
+  "/near/signature/:message/:nonce/:accountId/:publicKey/:signature",
+  async (req: Request, res: Response) => {
+    let { message, nonce, accountId, publicKey, signature } = req.params;
+    const result = await authenticateNearSignature(
+      message,
+      accountId,
+      publicKey,
+      nonce,
+      signature
+    );
+    res.send(result);
+  }
 );
 
 app.listen(port, () => {

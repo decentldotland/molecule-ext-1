@@ -91,5 +91,19 @@ GET /solana/spl/:sig/:token_address/:addr1/:addr2
 - `addr1`: the first EOA in this action
 - `addr2`: the second EOA in this action
 
+### 7- Verify signMessage signature on Near [NEP-0413](https://github.com/near/NEPs/blob/master/neps/nep-0413.md)
+```bash
+GET /near/signature/:message/:nonce/:accountId/:publicKey/:signature
+```
+- `message`: plaintext message that was signed
+- `accountId`: plaintext mainnet account used to sign message
+- `publicKey`: plaintext publicKey used by the same account from signMessage function
+- `nonce`: plaintext 32 byte-long random Uint8Array turned into hex
+```ts
+const challenge = randomBytes(32);
+let nonce = challenge.toString("hex");
+```
+- `signature`: plaintext signature from signMessage function
+
 ## License
 This project is licensed under the [MIT License](./LICENSE)
