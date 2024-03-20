@@ -8,6 +8,7 @@ import {
   getTransaction
 } from "./molecules/balances/atom";
 import { deployFunction } from "./molecules/mem-factory/atom";
+import { authenticateNearSignature } from "./molecules/near/signMessage/atom";
 import { getSplTokenTransfer } from "./molecules/solana/atom";
 import { aoDryRunData } from "./molecules/ao/atom";
 import type { Strategy } from "@/types";
@@ -118,6 +119,20 @@ app.get(
   },
 );
 
+app.get(
+  "/near/signature/:message/:nonce/:accountId/:publicKey/:signature",
+  async (req: Request, res: Response) => {
+    let { message, nonce, accountId, publicKey, signature } = req.params;
+    const result = await authenticateNearSignature(
+      message,
+      accountId,
+      publicKey,
+      nonce,
+      signature
+    );
+    res.send(result);
+  }
+);
 
 app.listen(port, () => {
   console.log(`[molecule-ext-1] running on port: ${port}`);
