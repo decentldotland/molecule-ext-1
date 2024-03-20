@@ -105,5 +105,15 @@ let nonce = challenge.toString("hex");
 ```
 - `signature`: plaintext signature from signMessage function
 
+### 8- Dry Run Data AO message
+
+```bash
+GET /ao/dryrundata/:pid/:tags/:data?
+```
+
+- `pid`: the AO process id
+- `tags` : the tags array in base64 format
+- `data (optional)`: the message data
+
 ## License
 This project is licensed under the [MIT License](./LICENSE)
